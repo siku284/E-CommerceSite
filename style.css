@@ -1,0 +1,108 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Animating ShopX Text */
+#shop-name {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #007bff; /* ShopX color */
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s forwards, bounceIn 1s infinite; /* Combine fade-in and bounce effect */
+}
+
+/* Fade In Effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px); /* Starts from above */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends at original position */
+    }
+}
+
+/* Bounce In Effect */
+@keyframes bounceIn {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Slightly enlarge during bounce */
+    }
+}
+
+/* Optional: Add some spacing around the ShopX */
+#shop-name {
+    margin-top: 100px;
+    text-align: center;
+}
+
+/* Cart and Checkout Styles */
+#cart-items {
+    margin-top: 20px;
+}
+
+#complete-payment {
+    background-color: #28a745;
+    color: white;
+}
+
+#order-confirmation {
+    background-color: #d4edda;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#order-confirmation h3 {
+    color: #155724;
+}
+
+#order-confirmation p {
+    color: #2e6e47;
+}
+
+/* Button Styles */
+button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #shop-name {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .cart-item {
+        display: block;
+    }
+}

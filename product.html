@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Product details -->
+            <div class="col-md-6">
+                <img id="product-image" class="img-fluid" alt="Product Image">
+            </div>
+            <div class="col-md-6">
+                <h2 id="product-title"></h2>
+                <p id="product-description"></p>
+                <p><strong>Price: $<span id="product-price"></span></strong></p>
+                <button id="add-to-cart" class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/scripts.js"></script>
+    <script>
+        // Function to get URL parameter
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Get the productId from the URL
+        const productId = getUrlParameter('productId');
+
+        // Define products information
+        const products = {
+            1: {
+                name: "Smartphone",
+                description: "This is a high-end smartphone with great features.",
+                price: 499.99,
+                image: "assets/images/smartphone.jpg"
+            },
+            2: {
+                name: "Laptop",
+                description: "This is a powerful laptop with high-end specifications.",
+                price: 899.99,
+                image: "assets/images/laptop.jpg"
+            },
+            3: {
+                name: "Smartwatch",
+                description: "This is a stylish smartwatch with various fitness features.",
+                price: 199.99,
+                image: "assets/images/smartwatch.jpg"
+            }
+        };
+
+        // Display product details
+        const product = products[productId];
+
+        if (product) {
+            document.getElementById('product-image').src = product.image;
+            document.getElementById('product-title').innerText = product.name;
+            document.getElementById('product-description').innerText = product.description;
+            document.getElementById('product-price').innerText = product.price;
+        } else {
+            alert("Product not found");
+        }
+
+        // Add to Cart functionality
+        document.getElementById('add-to-cart').addEventListener('click', function() {
+            addToCart(productId, product.name, product.price);
+        });
+    </script>
+</body>
+</html>
